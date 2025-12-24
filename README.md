@@ -1,10 +1,41 @@
-dans se tp j'ai pratique les formulair en symfony .
-au debut le creation d'un services AddToCartType qui herite de AbstractType pour nous permet de redefine la methode buildForm qui permet de 
-construire la structure du formulaire.
-dans cette methode pour ajouter des champs en fait  ->add() avec le nom du champs et le types et des autre option .
-puis la creation d'un controller creer une function et dans cette function en fait apple a $this->createForm(AddToCartType::class);qui permet de 
-crée un formulaire Symfony prêt à être affiché et traité.
-puis la creation de la template twig avec form_start(form) et form_label pour label et form_widget pour input et finalment form_end
-apres la creation d'une autre template pour personalisation en le creer dans des block form_row qui sert à personnaliser l’affichage d’un champ
-de formulaire Symfony avec Bootstrap, en incluant le label, l’input et les éventuelles erreurs .S
-et dans twig.yaml on définir les templates qui vont gérer le rendu des formulaires Symfony.
+TP : Pratique des formulaires Symfony
+
+Création d’un service AddToCartType
+
+Hérite de AbstractType.
+
+Permet de redéfinir la méthode buildForm(), qui sert à construire la structure du formulaire.
+
+Pour ajouter des champs, on utilise la méthode ->add() avec :
+
+le nom du champ,le type,et d’autres options éventuelles.
+
+Création du controller:
+
+On crée une fonction dans le controller.
+
+Dans cette fonction, on appelle :
+
+$this->createForm(AddToCartType::class);
+Cela permet de créer un formulaire Symfony prêt à être affiché et traité.
+
+Création du template Twig:
+Pour afficher le formulaire :
+
+{{ form_start(form) }}   {# début du formulaire #}
+{{ form_label(form.champ) }}  {# label du champ #}
+{{ form_widget(form.champ) }} {# champ input #}
+{{ form_end(form) }}     {# fin du formulaire #}
+
+
+Personnalisation du formulaire
+
+On peut créer un autre template Twig avec un block form_row pour personnaliser l’affichage d’un champ.
+
+Ce bloc inclut le label, l’input et les éventuelles erreurs.
+
+On peut utiliser Bootstrap pour le style.
+
+Configuration dans twig.yaml
+
+On définit les templates qui vont gérer le rendu des formulaires Symfony.
